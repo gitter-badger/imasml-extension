@@ -1,0 +1,20 @@
+{
+  "name": "imasml-extension",
+  "version": "0.0.0",
+  "description": "chrome extension for idolmaster millon live!",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.7.1",
+    "gulp-util": "~2.2.14",
+    "gulp": "~3.5.2",
+    "gulp-coffee": "~1.4.1",
+    "gulp-concat": "~2.1.7"
+  },
+  "scripts": {
+    "test": "mocha",
+    "build": "gulp --require coffee-script/register"
+  },
+  "author": "furugomu@gmail.com",
+  "license": "MIT"
+}

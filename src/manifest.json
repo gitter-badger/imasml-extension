@@ -1,0 +1,22 @@
+{
+  "name": "aaaaaaa",
+  "version": "0.0.0",
+  "description": "ぽえ",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://imas.gree-apps.net/",
+        "http://imas.gree-apps.net/app/index.php/*"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
+  "manifest_version": 2
+}
