@@ -18,5 +18,12 @@
       ]
     }
   ],
+  "page_action": {
+    "default_icon": {
+      "19": "images/icon19.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
   "manifest_version": 2
 }

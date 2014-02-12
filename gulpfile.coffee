@@ -9,6 +9,7 @@ gulp.task 'build', [
   'build-content-scripts',
   'build-background-scripts',
   'build-manifest',
+  'build-other-files',
 ]
 
 gulp.task 'build-content-scripts', ->
@@ -27,3 +28,14 @@ gulp.task 'build-manifest', ->
   # TODO: 何か読み書きしやすいものから JSON に変換したい
   gulp.src 'src/manifest.json'
   .pipe gulp.dest('build/')
+
+gulp.task 'build-other-files', ->
+  gulp.src 'src/*.html'
+  .pipe gulp.dest('build/')
+
+  gulp.src 'src/*.coffee'
+  .pipe coffee()
+  .pipe gulp.dest('build/')
+
+  gulp.src 'src/images/*'
+  .pipe gulp.dest('build/images/')
