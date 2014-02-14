@@ -27,6 +27,7 @@
   "options_page": "options.html",
   "permissions": [
     "tabs",
+    "declarativeWebRequest",
     "webRequest", "webRequestBlocking",
     "storage",
     "http://imas.gree-apps.net/*"
