@@ -12,7 +12,7 @@ gulp.task 'build', [
   'build-other-files',
 ]
 
-gulp.task 'watch', ->
+gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*', ['build']
 
 # CoffeeScript をコンパイルして結合する
