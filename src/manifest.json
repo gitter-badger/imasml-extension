@@ -25,5 +25,11 @@
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
+  "permissions": [
+    "tabs",
+    "webRequest", "webRequestBlocking",
+    "storage",
+    "http://imas.gree-apps.net/*"
+  ],
   "manifest_version": 2
 }
