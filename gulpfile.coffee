@@ -12,17 +12,21 @@ gulp.task 'build', [
   'build-other-files',
 ]
 
-gulp.task 'build-content-scripts', ->
-  gulp.src 'src/content-scripts/*.coffee'
+gulp.task 'watch', ->
+  gulp.watch 'src/**/*', ['build']
+
+# CoffeeScript をコンパイルして結合する
+compileScripts = (src, filename) ->
+  gulp.src src
   .pipe coffee()
-  .pipe concat('content-script.js')
+  .pipe concat(filename)
   .pipe gulp.dest('build/')
 
+gulp.task 'build-content-scripts', ->
+  compileScripts('src/content-scripts/*.coffee', 'content-script.js')
+
 gulp.task 'build-background-scripts', ->
-  gulp.src 'src/background/*.coffee'
-  .pipe coffee()
-  .pipe concat('background.js')
-  .pipe gulp.dest('build/')
+  compileScripts('src/background/*.coffee', 'background.js')
 
 gulp.task 'build-manifest', ->
   # TODO: 何か読み書きしやすいものから JSON に変換したい

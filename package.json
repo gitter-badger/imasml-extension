@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "gulp --require coffee-script/register"
+    "build": "gulp --require coffee-script/register",
+    "watch": "gulp --require coffee-script/register watch"
   },
   "author": "furugomu@gmail.com",
   "license": "MIT"
