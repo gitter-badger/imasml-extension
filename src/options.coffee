@@ -27,6 +27,10 @@ document.getElementById('cancel').addEventListener 'click', (e) ->
   window.close()
 , false
 
+document.getElementById('clear').addEventListener 'click', (e) ->
+  chrome.storage.sync.clear()
+, false
+
 ## 適用ボタン
 applyButton = document.getElementById('apply')
 applyButton.disabled = true

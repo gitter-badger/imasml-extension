@@ -30,7 +30,7 @@
     "declarativeWebRequest",
     "webRequest", "webRequestBlocking",
     "storage",
-    "http://imas.gree-apps.net/*"
+    "*://*/*"
   ],
   "manifest_version": 2
 }
