@@ -9,7 +9,8 @@
     "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
     "gulp-coffee": "~1.4.1",
-    "gulp-concat": "~2.1.7"
+    "gulp-concat": "~2.1.7",
+    "promise": "~5.0.0"
   },
   "scripts": {
     "test": "mocha",

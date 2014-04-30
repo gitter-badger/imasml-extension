@@ -2,6 +2,7 @@ gulp = require 'gulp'
 gutil = require 'gulp-util'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
+Promise = require 'promise'
 
 gulp.task 'default', ['build']
 
@@ -12,7 +13,7 @@ gulp.task 'build', [
   'build-other-files',
 ]
 
-gulp.task 'watch', ->
+gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*', ['build']
 
 # CoffeeScript をコンパイルして結合する
@@ -34,12 +35,14 @@ gulp.task 'build-manifest', ->
   .pipe gulp.dest('build/')
 
 gulp.task 'build-other-files', ->
-  gulp.src 'src/*.html'
-  .pipe gulp.dest('build/')
-
-  gulp.src 'src/*.coffee'
-  .pipe coffee()
-  .pipe gulp.dest('build/')
-
-  gulp.src 'src/images/*'
-  .pipe gulp.dest('build/images/')
+  Promise.all [
+    gulp.src 'src/*.html'
+    .pipe gulp.dest('build/')
+  ,
+    gulp.src 'src/*.coffee'
+    .pipe coffee()
+    .pipe gulp.dest('build/')
+  ,
+    gulp.src 'src/images/*'
+    .pipe gulp.dest('build/images/')
+  ]
