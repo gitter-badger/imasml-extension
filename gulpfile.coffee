@@ -2,10 +2,13 @@ gulp = require 'gulp'
 gutil = require 'gulp-util'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
+Promise = require 'promise'
+mocha = require 'gulp-mocha'
 
 gulp.task 'default', ['build']
 
 gulp.task 'build', [
+  'test',
   'build-content-scripts',
   'build-background-scripts',
   'build-manifest',
@@ -14,6 +17,11 @@ gulp.task 'build', [
 
 gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*', ['build']
+  gulp.watch 'test/**/*.coffee', ['test']
+
+gulp.task 'test', ->
+  gulp.src('test/**/*.coffee')
+  .pipe(mocha(reporter: 'nyan'))
 
 # CoffeeScript をコンパイルして結合する
 compileScripts = (src, filename) ->
@@ -34,12 +42,14 @@ gulp.task 'build-manifest', ->
   .pipe gulp.dest('build/')
 
 gulp.task 'build-other-files', ->
-  gulp.src 'src/*.html'
-  .pipe gulp.dest('build/')
-
-  gulp.src 'src/*.coffee'
-  .pipe coffee()
-  .pipe gulp.dest('build/')
-
-  gulp.src 'src/images/*'
-  .pipe gulp.dest('build/images/')
+  Promise.all [
+    gulp.src 'src/*.html'
+    .pipe gulp.dest('build/')
+  ,
+    gulp.src 'src/*.coffee'
+    .pipe coffee()
+    .pipe gulp.dest('build/')
+  ,
+    gulp.src 'src/images/*'
+    .pipe gulp.dest('build/images/')
+  ]

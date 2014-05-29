@@ -9,7 +9,12 @@
     "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
     "gulp-coffee": "~1.4.1",
-    "gulp-concat": "~2.1.7"
+    "gulp-concat": "~2.1.7",
+    "promise": "~5.0.0",
+    "chai": "~1.9.1",
+    "mocha": "~1.20.0",
+    "lodash": "~2.4.1",
+    "gulp-mocha": "~0.4.1"
   },
   "scripts": {
     "test": "mocha",
