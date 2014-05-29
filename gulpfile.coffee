@@ -3,10 +3,12 @@ gutil = require 'gulp-util'
 coffee = require 'gulp-coffee'
 concat = require 'gulp-concat'
 Promise = require 'promise'
+mocha = require 'gulp-mocha'
 
 gulp.task 'default', ['build']
 
 gulp.task 'build', [
+  'test',
   'build-content-scripts',
   'build-background-scripts',
   'build-manifest',
@@ -15,6 +17,11 @@ gulp.task 'build', [
 
 gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*', ['build']
+  gulp.watch 'test/**/*.coffee', ['test']
+
+gulp.task 'test', ->
+  gulp.src('test/**/*.coffee')
+  .pipe(mocha(reporter: 'nyan'))
 
 # CoffeeScript をコンパイルして結合する
 compileScripts = (src, filename) ->
