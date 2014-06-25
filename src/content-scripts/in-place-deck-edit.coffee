@@ -7,7 +7,7 @@ return if location.href.indexOf('/deck') < 0
 replaceBody = (html) ->
   parser = new DOMParser()
   doc = parser.parseFromString(html, 'text/html')
-  body = document.importNode(doc.body)
+  body = document.importNode(doc.body, true)
   document.documentElement.replaceChild(body, document.body)
 
 document.addEventListener 'submit', (e) ->

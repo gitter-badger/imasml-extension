@@ -2,5 +2,5 @@
 form = document.querySelector('form[action$="/battle/"]')
 if form and form.bp.value == '0'
   document.getElementById('fit-win').style.display = 'block'
-  itemButton = document.getElementById('item225') or document.getElementById('item8')
+  itemButton = document.querySelector('.item-panel [data-is-usable="1"]:last-child')
   itemButton.click()
