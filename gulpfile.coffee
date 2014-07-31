@@ -8,7 +8,7 @@ mocha = require 'gulp-mocha'
 gulp.task 'default', ['build']
 
 gulp.task 'build', [
-  'test',
+#  'test',
   'build-content-scripts',
   'build-background-scripts',
   'build-manifest',
