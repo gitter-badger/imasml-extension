@@ -2,7 +2,7 @@
 
 return if location.href.indexOf('/deck') < 0
 
-# ターボリンクのようなことをする
+# xhr で取ってきて body を置き換える
 
 replaceBody = (html) ->
   parser = new DOMParser()
@@ -20,12 +20,11 @@ document.addEventListener 'submit', (e) ->
   req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 
   req.addEventListener 'load', ->
-    console.log(req.status, req.statusText)
     replaceBody(req.responseText)
 
   req.addEventListener 'error', ->
     alert('error')
-    console.log('error', req)
+    console.error('error', req)
 
   params = []
   for input in form.elements
