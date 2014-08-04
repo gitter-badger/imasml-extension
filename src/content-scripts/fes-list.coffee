@@ -1,18 +1,16 @@
 # フェスリストを敵の最大HPでフィルター
-return if location.href.indexOf('/fes/event_list') < 0
+return unless new RegExp('/fes/event(_multi)?_list').test(location.href)
 
 list = document.querySelector('.list-bg')
 items = list.children
 for fes, i in items
   m = fes.textContent.match(/HP\s+(\d+)\s*\/\s*(\d+)/)
   unless m
-    console.log(fes, m)
     continue
   maxhp = m[2]|0
   # TODO: 入力できるようにする
   if maxhp < 6500000
-    fes.style.height = '2em'
-    fes.style.overflow = 'hidden'
+    fes.style.opacity = '0.6'
   # ついでにアクセスキーを付ける
   button = fes.querySelector('[type=submit]')
   accesskey = String(i+1)
