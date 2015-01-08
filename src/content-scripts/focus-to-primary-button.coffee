@@ -1,4 +1,8 @@
-selector = '.execute-lesson.useitem-none, .MainBtn :link, .MainBtn';
+selector = [
+  '.execute-lesson.useitem-none',
+  '.MainBtn :link',
+  'button.MainBtn',
+].join(', ')
 button = document.querySelector(selector)
 if button
   button.focus();
