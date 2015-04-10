@@ -9,7 +9,6 @@ function focus() {
 
   setTimeout(() => {
     let e = selectVisible(selector);
-    console.log('focus', e);
     if (e) { e.focus(); }
   }, 0);
 }
