@@ -1,0 +1,15 @@
+{
+    "framework": "mocha+chai",
+    "before_tests": "webpack",
+    "src_files": [
+        "src/**/*.es6",
+        "test/**/*.coffee"
+    ],
+    "serve_files": [
+        "build/test.js"
+    ],
+    "launch_in_dev": [
+        "Chrome",
+        "PhantomJS"
+    ]
+}

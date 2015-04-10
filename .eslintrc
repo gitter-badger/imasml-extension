@@ -1,0 +1,24 @@
+{
+    "env": {
+        "mocha": true,
+        "browser": true,
+        "node": true,
+    },
+    "rules": {
+        "strict": [2, "global"],
+        "quotes": 0,
+        "comma-dangle": 0,
+        "no-unused-vars": [2, {"vars": "all", "args": "none"}]
+    },
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "defaultParams": true,
+        "forOf": true,
+        "modules": true,
+        "spread": true
+    },
+    "global": {
+        "chrome": false
+    }
+}
