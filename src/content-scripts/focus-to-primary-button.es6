@@ -24,7 +24,7 @@ function focus() {
 
   // フォームがひとつだけ
   if (document.forms.length === 1) {
-    let e = selectVisible('[type=submit],button', document.forms);
+    let e = selectVisible('[type=submit],button', document.forms[0]);
     if (e) { e.focus(); }
   }
 })();
