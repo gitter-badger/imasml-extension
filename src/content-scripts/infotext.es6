@@ -4,23 +4,62 @@ unsafeCall(function() {
   if (typeof _root !== 'object') { return; }
 
   function setinfotext() {
+    console.debug(
+      [].filter.call(
+        document.querySelectorAll('script'),
+        e => e.textContent.indexOf('_root.next_url =') > 0)[0].textContent);
+    console.debug(method);
+
     let text = null;
-    if (_root.bp_gain) {
-      text = _root.bp_gain+'BP 回復';
-    }
-    else if (_root.is_rare) {
-      let type = _root.is_rare == "0" ? '通常' : 'レア';
-      text = type + 'フェス開催';
-    }
-    else if (_root.is_event == '1') {
-      // TODO カード獲得もここにきてしまう
-      text = 'ハート増加';
-    }
-    else if (_root.direc_type == '0') {
+    switch (method) {
+    case "bus_normal_c0_d0":
       text = 'エリア終了';
-    }
-    else if (_root.text) {
+      break;
+    case "bus_normal_c0_d1":
+      // カード獲得
       text = _root.text.replace("\n", '');
+      break;
+    case "bus_normal_c0_d1":
+      // コミュでバースト
+      text = _root.dtalk.replace('\n', '');
+      break;
+    case "bus_normal_c1_d7":
+      text = 'ハート増加'; // 通常営業？
+      break;
+    case "bus_normal_c2_d3":
+    case "bus_normal_c3_d3":
+      text = _root.bp_gain+'BP 回復';
+      break;
+    case "bus_normal_c2_d7":
+      text = 'ハート増加'; // イベント営業？
+      break;
+    case 'bus_normal_c2_d4':
+      // コミュ？
+      text = _root.dtalk.replace('\n', '');
+      break;
+    case 'bus_normal_c3_d2':
+      // 弱いフェス (イベントフェス？)
+      text = '通常フェス開催';
+      break;
+    case 'bus_normal_c3_d4':
+      // コミュ？
+      text = _root.dtalk.replace('\n', '');
+      break;
+    case 'bus_normal_c5_d2':
+      // 強いフェス (イベントフェス？)
+      text = 'レアフェス開催';
+      break;
+    default:
+      if (_root.is_rare) {
+        let type = _root.is_rare === "0" ? '通常' : 'レア';
+        text = type + 'フェス開催';
+      }
+      else if (_root.dtalk) {
+        text = _root.dtalk.replace("\n", '');
+      }
+      else if (_root.text) {
+        text = _root.text.replace("\n", '');
+      }
     }
 
     if (text) {
