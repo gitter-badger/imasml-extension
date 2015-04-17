@@ -13,7 +13,14 @@ unsafeCall(function() {
     let text = null;
     switch (method) {
     case "bus_normal_c0_d0":
-      text = 'エリア終了';
+      // なにもおきない
+      let n = Number;
+      if (n(_root.prog) + n(_root.ploop) * n(_root.prog_gain) === n(_root.prog_max)) {
+        text = 'エリア終了';
+      }
+      else {
+        text = '元気切れ';
+      }
       break;
     case "bus_normal_c0_d1":
       // カード獲得
