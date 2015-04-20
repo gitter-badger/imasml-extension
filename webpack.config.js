@@ -14,7 +14,7 @@ var config = module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(jsx?|es6)$/, exclude: /node_modules/, loader: 'babel' },
+      { test: /\.(jsx|es6)$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.coffee$/, exclude: /node_modules/, loader: 'coffee' },
       { test: /\.html$/, loader: 'html-loader' },
     ]
@@ -22,7 +22,7 @@ var config = module.exports = {
   resolve: {
     extensions: ['', '.js', '.es6', '.coffee'],
   },
-  devtool: 'cheap-module-inline-source-map',
+  devtool: 'inline-source-map',
   plugins: [],
 };
 

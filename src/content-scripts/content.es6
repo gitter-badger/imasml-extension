@@ -1,3 +1,4 @@
+import 'babel/polyfill';
 import './battle';
 import './bazaar';
 import './close-dialog';

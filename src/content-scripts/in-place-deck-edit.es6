@@ -11,8 +11,8 @@ function submitXHR(form, callback) {
   xhr.addEventListener('error', () => callback('error', null));
 
   let params = [];
-  for (let input of form.elements) {
-    if (!imput.name) { continue; }
+  for (let input of Array.from(form.elements)) {
+    if (!input.name) { continue; }
     params.push(encodeURIComponent(input.name)+'='+
                 encodeURIComponent(input.value));
   }
