@@ -9,6 +9,9 @@
     return buttons[buttons.length-1];
   }
 
+  // BP0ボタンがあったらやめる
+  if (form.querySelector('.bp-button-0')) { return; }
+
   // 現在のBPが0だったらダイアログを表示してあめいっこ選ぶ
   if (form.bp.value === '0') {
     document.getElementById('fit-win').style.display = 'block';
