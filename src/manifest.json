@@ -30,6 +30,5 @@
     "http://imas.gree-apps.net/*",
     "*://*.gree.net/*"
   ],
-  "update_url": "https://bitbucket.org/furugomu/imasml-extension/raw/HEAD/update.xml",
   "manifest_version": 2
 }

@@ -5,7 +5,7 @@ through2 = require 'through2'
 
 gulp.task 'default', ['build']
 
-gulp.task 'build', ['webpack', 'copy', 'manifest.json', 'update.xml']
+gulp.task 'build', ['webpack', 'copy', 'manifest.json']
 
 gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*', ['build']
@@ -34,22 +34,3 @@ gulp.task 'manifest.json', ->
     this.push(file)
     callback()
   .pipe gulp.dest('build/')
-
-# update.xml のバージョンを埋める
-gulp.task 'update.xml', ->
-  version = pkg.version
-  url = 'https://bitbucket.org/furugomu/imasml-extension/raw/HEAD/build.crx'
-
-  gulp.src 'update.xml'
-  .pipe through2.obj (file, encoding, callback) ->
-    file.contents = new Buffer("""
-      <?xml version='1.0' encoding='UTF-8'?>
-      <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
-        <app appid='lbkcmmeofdaijlkdhklbnoghdojpegld'>
-          <updatecheck codebase='#{url}' version='#{version}' />
-        </app>
-      </gupdate>
-    """)
-    this.push(file)
-    callback()
-  .pipe gulp.dest('./')
