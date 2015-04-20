@@ -22,7 +22,7 @@ var config = module.exports = {
   resolve: {
     extensions: ['', '.js', '.es6', '.coffee'],
   },
-  devtool: 'inline-source-map',
+  devtool: env === 'development' ? 'inline-source-map' : null,
   plugins: [],
 };
 

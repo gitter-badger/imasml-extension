@@ -1,7 +1,7 @@
 {
-  "name": "imasml-extension",
-  "version": "0.1.0",
-  "description": "Chrome extension for THE IDOLM@STER Millon Live!",
+  "name": "ここは package.json からコピーされる",
+  "version": "同上",
+  "description": "同上",
   "background": {
     "scripts": [
       "background.js"
@@ -30,5 +30,6 @@
     "http://imas.gree-apps.net/*",
     "*://*.gree.net/*"
   ],
+  "update_url": "https://bitbucket.org/furugomu/imasml-extension/raw/HEAD/update.xml",
   "manifest_version": 2
 }
