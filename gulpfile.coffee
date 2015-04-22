@@ -8,7 +8,7 @@ gulp.task 'default', ['build']
 gulp.task 'build', ['webpack', 'copy', 'manifest.json']
 
 gulp.task 'watch', ['build'], ->
-  gulp.watch 'src/**/*', ['build']
+  gulp.watch ['src/**/*', './package.json'], ['build']
 
 # Webpack で JS を作る
 gulp.task 'webpack', ->
