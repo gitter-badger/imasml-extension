@@ -16,7 +16,7 @@
   let submitButton = form.querySelector('[type=submit]');
   document.addEventListener('keypress', (e) => {
     let n = e.keyCode - 0x30; // 0-9
-    let button = form.querySelector(`[data-value="${n}"]`);
+    let button = form.querySelector(`.bp-button [data-value="${n}"]`);
     if (!button) { return; }
     // 飴使用をリセット
     for (let input of Array.from(form.querySelectorAll('.use-item-count'))) {
