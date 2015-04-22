@@ -1,8 +1,10 @@
 # :poop: :poop:
 
-## インストール方法
+https://chrome.google.com/webstore/detail/imasml-extension/lbkcmmeofdaijlkdhklbnoghdojpegld
 
-1. Node.js をインストールする。
+## ソースからインストールする方法
+
+1. [Node.js](nodejs.org) か [io.js](iojs.org) をインストールする。
 
 2. imas-extension のディレクトリで
 ```
