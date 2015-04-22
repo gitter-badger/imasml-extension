@@ -4,8 +4,8 @@ var path = require('path');
 var env = process.env.NODE_ENV || process.env.RACK_ENV || 'development';
 var config = module.exports = {
   entry: {
-    'content-script': './src/content-scripts/content',
-    background: './src/background/background',
+    'content-script': './src/content-scripts',
+    background: './src/background',
     test: './test/test'
   },
   output: {
