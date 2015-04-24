@@ -2,7 +2,6 @@ let path = location.pathname.replace(new RegExp('^/app/index.php/'), '');
 let pathElements = path.split('/');
 
 function findCaption() {
-  console.log(pathElements);
   if (pathElements[0] === 'gasha') {
     return document.querySelector('.is-active').textContent + 'ガシャ';
   }

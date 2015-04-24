@@ -35,6 +35,7 @@ unsafeCall(function() {
       break;
     case "bus_normal_c2_d3":
     case "bus_normal_c3_d3":
+    case "bus_normal_c4_d3": // 通常bp3?
       text = _root.bp_gain+'BP 回復';
       break;
     case "bus_normal_c2_d7":

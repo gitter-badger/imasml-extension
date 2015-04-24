@@ -1,5 +1,7 @@
 // アイドルマスターズカップ
 
+import selectVisible from './lib/select-visible';
+
 (function main() {
   let form = document.getElementById('send-attack');
   if (!form) { return; }
@@ -13,7 +15,6 @@
   }
   // 1～5を押したらそのBPになるまで飴を押す
   // FIXME: 5 -> 1 -> 5 とか押すとおかしくなる
-  let submitButton = form.querySelector('[type=submit]');
   document.addEventListener('keypress', (e) => {
     let n = e.keyCode - 0x30; // 0-9
     let button = form.querySelector(`.bp-button [data-value="${n}"]`);
@@ -28,6 +29,7 @@
     }
     // 押す
     button.click();
+    let submitButton = selectVisible('[type=submit]', form);
     submitButton.focus();
   }, false);
 })();
