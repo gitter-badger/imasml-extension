@@ -22,7 +22,7 @@
   let submitButton = form.querySelector('[type=submit]');
   document.addEventListener('keypress', (e) => {
     if (e.keyCode !== 0x33) { return; } // 3
-    for (let i = Number(form.bp); i < 3; ++i) {
+    for (let i = Number(form.bp.value); i < 3; ++i) {
       itemButton().click();
     }
     submitButton.focus();

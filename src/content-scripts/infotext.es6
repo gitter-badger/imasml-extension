@@ -4,12 +4,6 @@ unsafeCall(function() {
   if (typeof _root !== 'object') { return; }
 
   function setinfotext() {
-    console.debug(
-      [].filter.call(
-        document.querySelectorAll('script'),
-        e => e.textContent.indexOf('_root.next_url =') > 0)[0].textContent);
-    console.debug(method);
-
     let text = null;
     switch (method) {
     case "bus_normal_c0_d0":
@@ -30,39 +24,55 @@ unsafeCall(function() {
       // コミュでバースト
       text = _root.dtalk.replace('\n', '');
       break;
-    case "bus_normal_c1_d7":
-      text = 'ハート増加'; // 通常営業？
+    case 'bus_normal_c5_d2':
+      // 強いフェス (イベントフェス？)
+      text = 'レアフェス開催';
       break;
+    case "bus_normal_c1_d3": // 通常bp1?
     case "bus_normal_c2_d3":
     case "bus_normal_c3_d3":
     case "bus_normal_c4_d3": // 通常bp3?
       text = _root.bp_gain+'BP 回復';
       break;
-    case "bus_normal_c2_d7":
-      text = 'ハート増加'; // イベント営業？
-      break;
-    case 'bus_normal_c2_d4':
-      // コミュ？
-      text = _root.dtalk.replace('\n', '');
-      break;
     case 'bus_normal_c3_d2':
       // 弱いフェス (イベントフェス？)
       text = '通常フェス開催';
       break;
+    case 'bus_normal_c1_d4':
+      // プライベートレッスン
+      if (_root.next_url.indexOf('private_lesson') >= 0) {
+        text = 'プライベートレッスン';
+      }
+      else {
+        text = '5分2倍';
+      }
+      break;
+    case 'bus_normal_c2_d4':
     case 'bus_normal_c3_d4':
       // コミュ？
       text = _root.dtalk.replace('\n', '');
       break;
-    case 'bus_normal_c5_d2':
-      // 強いフェス (イベントフェス？)
-      text = 'レアフェス開催';
+    case "bus_normal_c1_d7":
+      text = 'ハート増加'; // 通常営業？
+      break;
+    case "bus_normal_c2_d7":
+      text = 'ハート増加'; // イベント営業？
       break;
     default:
+      if (method.indexOf("bus_normal") >= 0) {
+        console.debug(
+          [].filter.call(
+            document.querySelectorAll('script'),
+            e => e.textContent.indexOf('_root.next_url =') > 0)[0].textContent);
+        console.debug(method);
+      }
+
       if (_root.is_rare) {
         let type = _root.is_rare === "0" ? '通常' : 'レア';
         text = type + 'フェス開催';
       }
       else if (_root.dtalk) {
+        alert(method);
         text = _root.dtalk.replace("\n", '');
       }
       else if (_root.text) {
