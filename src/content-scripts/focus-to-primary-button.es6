@@ -9,7 +9,9 @@ function focus() {
 
   setTimeout(() => {
     let e = selectVisible(selector);
-    if (e) { e.focus(); }
+    // スペシャルレッスンボタンがあるときはフォーカさない
+    let spLessonButton = document.querySelector('.useitem-05:not(.btn-off)');
+    if (e && !spLessonButton) { e.focus(); }
   }, 0);
 }
 
