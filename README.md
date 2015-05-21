@@ -1,5 +1,7 @@
 # :poop: :poop:
 
+[![Join the chat at https://gitter.im/furugomu/imasml-extension](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/furugomu/imasml-extension?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 https://chrome.google.com/webstore/detail/imasml-extension/lbkcmmeofdaijlkdhklbnoghdojpegld
 
 ## ソースからインストールする方法
